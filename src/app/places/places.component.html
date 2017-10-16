@@ -1,0 +1,54 @@
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+
+<hr>
+
+Write your name: <input type="text" [(ngModel)]="myName">
+
+<h1>
+  My Name is {{myName}}
+</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <h2>Lugares Cercanos</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let place of places">
+          <a routerLink="/detalle/{{place.id}}" [queryParams]="{action: (place.plan == 'pago') ? 'edit' : 'view'}">
+            <li class="list-group-item" *ngIf="place.is_active">
+              {{place.name}}
+            </li>
+          </a>
+        </ng-container>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <h2>Destacados</h2>
+      <ul class="list-group">
+        <ng-container *ngFor="let place of places">
+          <a routerLink="/detalle/{{place.id}}" [queryParams]="{action: (place.plan == 'pago') ? 'edit' : 'view'}">
+            <li class="list-group-item" *ngIf="place.is_active && place.plan =='pago'">
+              {{place.name}}
+            </li>
+          </a>
+        </ng-container>
+      </ul>
+    </div>
+  </div>
+</div>
+<ul>
+  <ng-container *ngFor="let place of places; let i = index" [ngSwitch]="place.proximity">
+    <a>
+      <li appContarClicks [ngStyle]="{color: (place.is_active) ? 'black' : 'gray'}"
+          [ngClass]="{'person-age-lower-than-18': (i % 2 == 0)}" [appResaltar]="place.plan">
+        {{place.name}} -
+        <span *ngSwitchCase="1" [ngStyle]="{color: 'green'}">Very Near</span>
+        <span *ngSwitchCase="2" [ngStyle]="{color: 'black'}">Near</span>
+        <span *ngSwitchCase="3" [ngStyle]="{color: 'red'}">Far</span>
+      </li>
+    </a>
+  </ng-container>
+</ul>
+<router-outlet></router-outlet>

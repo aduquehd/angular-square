@@ -1,1 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+agm-map {
+  height: 300px;
+}
+
+.person-age-lower-than-18{
+  background: aliceblue;
+  color: blue;
+}
