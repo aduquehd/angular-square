@@ -1,0 +1,42 @@
+<div class="well">
+  <a routerLink="/lugares">Places</a> / Create Place
+</div>
+
+<div class="container">
+  <label for="">Name</label>
+  <input type="text" class="form-control" [(ngModel)]="place.name">
+  <br>
+
+  <label for="">Distance</label>
+  <input type="number" class="form-control" [(ngModel)]="place.distance">
+  <br>
+
+  <label for="">Proximity</label>
+  <input type="number" class="form-control" [(ngModel)]="place.proximity">
+  <br>
+
+  <label for="">Description</label>
+  <textarea class="form-control" [(ngModel)]="place.description"></textarea>
+  <br>
+
+  <label for="">Plan type</label>
+  <input type="text" class="form-control" [(ngModel)]="place.plan_type">
+  <br>
+
+  <h3>Address </h3>
+
+  <label for="">Street and #</label>
+  <input type="text" class="form-control" [(ngModel)]="place.street">
+  <br>
+
+  <label for="">City</label>
+  <input type="text" class="form-control" [(ngModel)]="place.city">
+  <br>
+
+  <label for="">Country</label>
+  <input type="text" class="form-control" [(ngModel)]="place.country">
+  <br>
+
+  <a class="btn btn-primary" (click)="savePlace()">Save</a>
+  <a routerLink="/lugares" class="btn btn-default">Cancelar</a>
+</div>

@@ -1,20 +1,17 @@
-<input type="text" [(ngModel)]="xname">
-
-
 <div class="well">
-  <a routerLink="/lugares">Lugares</a> / {{lugar.name}}
+  <a routerLink="/lugares">Lugares</a> / {{place.name}}
 </div>
 
 <div class="container">
-  <h1>{{lugar.name}}</h1>
+  <h1>{{place.name}}</h1>
   <hr>
-  <small>{{lugar.distance}} Km</small>
+  <small>{{place.distance}} Km</small>
   <br>
   <div class="well">
     <p>
-      {{lugar.description}}
+      {{place.description}}
     </p>
-    <b>Suscripción: {{lugar.plan}}</b>
+    <b>Suscripción: {{place.plan}}</b>
   </div>
 
 </div>
